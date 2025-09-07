@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/styles.css">
-    <link rel="icon" href="{{ url_for('static', filename='img/wallet.png') }}" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='img/Logo.png') }}" type="image/png">
 </head>
 <body class="login-page">
     <div class="login-layout">
@@ -20,7 +20,7 @@
         <!-- Coluna do formulário -->
         <div class="login-form-column">
             <div class="login-container">
-                <h2>Login</h2>
+                <h2>Transforme sua<br><span class="highlight-text">Vida Financeira</span></h2>
                 <form action="{{ url_for('main.login') }}" method="post">
                     {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
