@@ -24,7 +24,7 @@ body {
     background: rgba(30, 30, 46, 0.8);
     backdrop-filter: blur(10px);
     color: #e2e8f0;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    box-shadow: none;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -126,13 +126,17 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none;
+    background: rgba(30, 30, 46, 0.4);
 }
 
 table, th, td {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(30, 30, 46, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: transparent;
     color: #e2e8f0;
-    border-radius: 8px;
+    border-radius: 0;
 }
 
 table {
@@ -142,23 +146,75 @@ table {
 }
 
 td {
-    padding: 16px 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 18px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    transition: all 0.2s ease;
+    background: rgba(30, 30, 46, 0.3);
+}
+
+tbody tr {
+    transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+tbody tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
 }
 
 th, td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
 }
 
 th {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    color: #f1f5f9;
-    font-weight: 600;
+    background: rgba(30, 30, 46, 0.8);
+    color: #e2e8f0;
+    font-weight: 500;
     font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 16px 12px;
+    text-transform: none;
+    letter-spacing: 0.025em;
+    padding: 20px 16px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Estilo para valores monetários */
+.currency-value {
+    font-family: 'Inter', monospace;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.025em;
+}
+
+.currency-value.positive {
+    color: #10b981;
+}
+
+.currency-value.negative {
+    color: #ef4444;
+}
+
+/* Estilo para links de ação nas tabelas */
+table a {
+    color: #ef4444;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+table a:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.3);
+    transform: translateY(-1px);
 }
 
 /* Estilo dos inputs, selects e botões */
@@ -180,7 +236,7 @@ input, select, button {
 input:focus, select:focus {
     outline: none;
     border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+    box-shadow: none;
     background: rgba(30, 30, 46, 0.9);
 }
 
@@ -314,7 +370,7 @@ button {
     border-radius: 12px;
     font-weight: 600;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
     position: relative;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
@@ -324,12 +380,12 @@ button {
 button:hover {
     background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: none;
 }
 
 button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
 }
 
 /* Dashboard Grid Layout */
@@ -365,7 +421,7 @@ button:active {
     backdrop-filter: blur(10px);
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     transition: all 0.3s ease;
     flex: 1;
     min-height: 0;
@@ -373,7 +429,7 @@ button:active {
 
 .summary-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
     border-color: rgba(96, 165, 250, 0.3);
 }
 
@@ -440,7 +496,7 @@ button:active {
     backdrop-filter: blur(10px);
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     padding: 24px;
     height: 400px;
 }
@@ -524,41 +580,139 @@ button:active {
     padding: 24px;
     margin-bottom: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
 }
 
-/* Estilo para mensagens flash */
+/* Estilo para cabeçalhos de tabela minimalistas */
+.table-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+    border-radius: 0;
+    padding: 0 0 16px 0;
+    margin: 0 0 24px 0;
+}
+
+.table-header h2 {
+    margin: 0 0 6px 0;
+    color: #e2e8f0;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: -0.025em;
+    font-family: 'Inter', sans-serif;
+    display: block;
+}
+
+.table-subtitle {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.8;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Estilo moderno para mensagens flash */
 .flash {
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 16px 20px;
-    margin: 12px 0;
+    border-radius: 16px;
+    border: none;
+    backdrop-filter: blur(20px);
+    padding: 20px 24px;
+    margin: 16px 0;
     font-weight: 500;
+    font-size: 15px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.5;
+}
+
+.flash::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.6;
 }
 
 .flash.info {
-    background: rgba(59, 130, 246, 0.1);
-    color: #93c5fd;
-    border-color: rgba(59, 130, 246, 0.2);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(96, 165, 250, 0.1) 100%);
+    color: #60a5fa;
+    border-left: 4px solid #3b82f6;
+}
+
+.flash.info::before {
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
 }
 
 .flash.success {
-    background: rgba(34, 197, 94, 0.1);
-    color: #86efac;
-    border-color: rgba(34, 197, 94, 0.2);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(16, 185, 129, 0.1) 100%);
+    color: #10b981;
+    border-left: 4px solid #059669;
+}
+
+.flash.success::before {
+    background: linear-gradient(90deg, transparent, #10b981, transparent);
 }
 
 .flash.warning {
-    background: rgba(245, 158, 11, 0.1);
-    color: #fcd34d;
-    border-color: rgba(245, 158, 11, 0.2);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(251, 191, 36, 0.1) 100%);
+    color: #f59e0b;
+    border-left: 4px solid #d97706;
+}
+
+.flash.warning::before {
+    background: linear-gradient(90deg, transparent, #f59e0b, transparent);
 }
 
 .flash.error {
-    background: rgba(239, 68, 68, 0.1);
-    color: #fca5a5;
-    border-color: rgba(239, 68, 68, 0.2);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(248, 113, 113, 0.1) 100%);
+    color: #ef4444;
+    border-left: 4px solid #dc2626;
+}
+
+.flash.error::before {
+    background: linear-gradient(90deg, transparent, #ef4444, transparent);
+}
+
+/* Ícones modernos para mensagens flash */
+.flash::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+}
+
+.flash.info::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2360a5fa'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
+}
+
+.flash.success::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2310b981'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
+}
+
+.flash.warning::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23f59e0b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 18.5c-.77.833.192 2.5 1.732 2.5z'/%3E%3C/svg%3E");
+}
+
+.flash.error::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ef4444'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
 }
 
 
@@ -570,10 +724,45 @@ button:active {
     color: #e2e8f0;
     padding: 32px;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    box-shadow: none;
     border: 1px solid rgba(255, 255, 255, 0.1);
     width: 320px;
     margin: 50px auto;
+}
+
+/* Estilos para o cabeçalho do login */
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.login-logo:hover {
+    transform: scale(1.05);
+}
+
+.welcome-title {
+    margin: 0 0 8px 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    line-height: 1.2;
+}
+
+.welcome-subtitle {
+    margin: 0 0 0 0;
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
 }
 
 .login-container h2, .register-container h2 {
@@ -613,7 +802,7 @@ button:active {
 
 .login-container input:focus, .register-container input:focus {
     border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+    box-shadow: none;
     outline: none;
     background: rgba(30, 30, 46, 0.9);
 }
@@ -629,14 +818,14 @@ button:active {
     font-weight: 600;
     font-size: 0.875rem;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
     margin-top: 16px;
 }
 
 .login-container button:hover, .register-container button:hover {
     background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: none;
 }
 
 .register-link, .login-link {
@@ -668,33 +857,6 @@ button:active {
     max-width: 1200px;
 }
 
-.flash {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-}
-
-.flash.info {
-    background-color: #d9edf7;
-    color: #31708f;
-}
-
-.flash.success {
-    background-color: #dff0d8;
-    color: #3c763d;
-}
-
-.flash.warning {
-    background-color: #fcf8e3;
-    color: #8a6d3b;
-}
-
-.flash.error {
-    background-color: #f2dede;
-    color: #a94442;
-}
 
 #calendar-container {
     margin: 0px;
@@ -751,7 +913,7 @@ button:active {
     color: #e2e8f0;
     padding: 48px;
     border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    box-shadow: none;
     border: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 90vh;
     overflow-y: auto;
@@ -767,7 +929,7 @@ button:active {
     color: #e2e8f0;
     padding: 48px;
     border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    box-shadow: none;
     border: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 90vh;
     overflow-y: auto;
@@ -811,7 +973,7 @@ button:active {
 .form-group input:focus {
     outline: none;
     border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+    box-shadow: none;
     background: rgba(30, 30, 46, 0.9);
 }
 
@@ -840,7 +1002,7 @@ button:active {
 .register-container input:focus {
     outline: none;
     border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+    box-shadow: none;
     background: rgba(30, 30, 46, 0.9);
 }
 
@@ -894,6 +1056,20 @@ button:active {
         overflow-y: auto;
     }
     
+    .login-logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 12px;
+    }
+    
+    .welcome-title {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-subtitle {
+        font-size: 0.9rem;
+    }
+    
     .form-row {
         flex-direction: column;
         gap: 0;
@@ -921,6 +1097,20 @@ button:active {
         max-width: 100%;
         max-height: 85vh;
         overflow-y: auto;
+    }
+    
+    .login-logo {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+    
+    .welcome-title {
+        font-size: 1.25rem;
+    }
+    
+    .welcome-subtitle {
+        font-size: 0.8rem;
     }
     
     .form-row {
@@ -978,7 +1168,7 @@ footer, .login-footer {
     background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%) !important;
     color: #e2e8f0 !important;
     text-align: center !important;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    box-shadow: none !important;
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: blur(10px) !important;
     z-index: 1000 !important;
@@ -1000,24 +1190,31 @@ footer, .login-footer {
     backdrop-filter: blur(10px);
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
 }
 
 /* Cabeçalho do calendário */
 .calendar-header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
+    padding: 24px;
+    background: rgba(30, 30, 46, 0.6);
+    border-radius: 20px;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .calendar-header h1 {
-    margin: 0 0 8px 0;
-    font-size: 2rem;
-    font-weight: 700;
+    margin: 0 0 12px 0;
+    font-size: 2.5rem;
+    font-weight: 800;
     color: #e2e8f0;
-    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 30%, #8b5cf6 70%, #1d4ed8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.02em;
+    text-shadow: none;
 }
 
 /* Manter a cor original do emoji do calendário */
@@ -1027,14 +1224,18 @@ footer, .login-footer {
     -webkit-background-clip: initial !important;
     background-clip: initial !important;
     color: initial !important;
-    margin-right: 8px;
+    margin-right: 12px;
+    font-size: 2.2rem;
+    filter: none;
 }
 
 .calendar-header p {
     margin: 0;
-    color: #94a3b8;
-    font-size: 1rem;
-    font-weight: 400;
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+    letter-spacing: 0.01em;
 }
 
 /* Controles do calendário */
@@ -1042,51 +1243,77 @@ footer, .login-footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
-    margin-bottom: 24px;
-    padding: 16px;
-    background: rgba(30, 30, 46, 0.6);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 32px;
+    margin-bottom: 32px;
+    padding: 20px 24px;
+    background: rgba(30, 30, 46, 0.8);
+    border-radius: 16px;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: none;
 }
 
 .calendar-btn {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
     color: #ffffff;
     border: none;
-    border-radius: 8px;
-    width: 40px;
-    height: 40px;
+    border-radius: 12px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.calendar-btn:hover::before {
+    left: 100%;
 }
 
 .calendar-btn:hover {
-    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: none;
 }
 
 .calendar-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: none;
 }
 
 .calendar-btn i {
-    font-size: 14px;
+    font-size: 16px;
+    z-index: 1;
 }
 
 #current-month {
     margin: 0;
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.75rem;
+    font-weight: 700;
     color: #e2e8f0;
-    min-width: 200px;
+    min-width: 240px;
     text-align: center;
+    background: linear-gradient(135deg, #60a5fa 0%, #8b5cf6 50%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.01em;
+    text-shadow: none;
 }
 
 /* Container do calendário */
@@ -1096,7 +1323,7 @@ footer, .login-footer {
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 24px 24px 0 24px;
     margin-bottom: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     overflow: hidden;
 }
 
@@ -1148,27 +1375,90 @@ footer, .login-footer {
 
 /* Cabeçalho dos dias da semana */
 .fc-col-header-cell {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    color: #f1f5f9;
+    background: transparent !important;
+    color: #60a5fa !important;
     font-weight: 600;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding: 12px 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: none;
+    border: none !important;
+    border-radius: 8px;
+}
+
+/* Elementos dos dias da semana */
+.fc-col-header-cell * {
+    color: #60a5fa !important;
+    background: transparent !important;
+}
+
+/* Elementos específicos do FullCalendar para cabeçalhos */
+.fc-col-header-cell th,
+.fc-col-header-cell td,
+.fc-col-header-cell-cushion {
+    background: transparent !important;
+    color: #60a5fa !important;
+    border: none !important;
+}
+
+/* Elemento específico do cushion */
+.fc-col-header-cell-cushion {
+    color: #60a5fa !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 2px 4px !important;
+}
+
+/* Remover todas as bordas dos elementos do calendário */
+.fc-col-header-cell,
+.fc-col-header-cell *,
+.fc-daygrid-day,
+.fc-daygrid-day *,
+.fc-daygrid-day-number,
+.fc-daygrid-day-number * {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Estilos específicos para elementos do FullCalendar */
+.fc-scrollgrid,
+.fc-scrollgrid *,
+.fc-scrollgrid-section,
+.fc-scrollgrid-section *,
+.fc-scrollgrid-sync-table,
+.fc-scrollgrid-sync-table *,
+.fc-scrollgrid-sync-table td,
+.fc-scrollgrid-sync-table th {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Remover fundos brancos dos cabeçalhos */
+.fc-scrollgrid-section-header,
+.fc-scrollgrid-section-header *,
+.fc-col-header,
+.fc-col-header *,
+.fc-col-header-cell,
+.fc-col-header-cell *,
+.fc-col-header-cell-cushion,
+.fc-col-header-cell-cushion * {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #60a5fa !important;
+    border: none !important;
 }
 
 /* Células dos dias */
 .fc-daygrid-day {
-    background: rgba(30, 30, 46, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-top: none;
-    border-bottom: none;
+    background: rgba(30, 30, 46, 0.6);
+    border: none;
     transition: all 0.2s ease;
     height: auto !important;
     min-height: auto !important;
     max-height: none !important;
+    border-radius: 8px;
 }
 
 /* Remover bordas das últimas linhas */
@@ -1231,14 +1521,14 @@ footer, .login-footer {
 }
 
 .fc-daygrid-day:hover {
-    background: rgba(30, 30, 46, 0.6);
-    border-color: rgba(96, 165, 250, 0.3);
+    background: rgba(96, 165, 250, 0.1);
+    transform: translateY(-1px);
+    box-shadow: none;
 }
 
 /* Dia atual */
 .fc-day-today {
     background: rgba(96, 165, 250, 0.1) !important;
-    border-color: rgba(96, 165, 250, 0.3) !important;
 }
 
 .fc-day-today .fc-daygrid-day-number {
@@ -1248,11 +1538,19 @@ footer, .login-footer {
 
 /* Números dos dias */
 .fc-daygrid-day-number {
-    color: #e2e8f0;
+    color: #e2e8f0 !important;
     font-weight: 500;
     padding: 8px;
     font-size: 0.875rem;
     line-height: 1;
+    background: rgba(30, 30, 46, 0.6) !important;
+    border-radius: 6px;
+    border: none;
+}
+
+/* Elemento top dos dias do calendário */
+.fc-daygrid-day-top {
+    padding: 2px !important;
 }
 
 /* Ajustar altura das linhas da tabela */
@@ -1279,20 +1577,21 @@ footer, .login-footer {
 .fc-event {
     background: #60a5fa;
     border: none;
-    border-radius: 6px;
-    padding: 2px 6px;
-    margin: 1px 0;
-    font-size: 0.75rem;
+    border-radius: 1px;
+    padding: 0.1px 0.5px;
+    margin: 0.05px 0;
+    font-size: 0.22rem;
     font-weight: 500;
     color: #ffffff;
     cursor: pointer;
     transition: all 0.2s ease;
+    line-height: 0.8;
 }
 
 .fc-event:hover {
     background: #3b82f6;
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    box-shadow: none;
 }
 
 /* Tipos específicos de eventos */
@@ -1341,7 +1640,7 @@ footer, .login-footer {
     background: rgba(30, 30, 46, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: none;
     backdrop-filter: blur(10px);
 }
 
@@ -1363,39 +1662,68 @@ footer, .login-footer {
 .calendar-legend {
     display: flex;
     justify-content: center;
-    gap: 24px;
-    padding: 16px;
-    background: rgba(30, 30, 46, 0.6);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 32px;
+    padding: 20px 24px;
+    background: rgba(30, 30, 46, 0.8);
+    border-radius: 16px;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: none;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     color: #e2e8f0;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    background: rgba(30, 30, 46, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.legend-item:hover {
+    background: rgba(30, 30, 46, 0.8);
+    transform: translateY(-2px);
+    box-shadow: none;
 }
 
 .legend-color {
-    width: 12px;
-    height: 12px;
-    border-radius: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 6px;
     display: inline-block;
+    box-shadow: none;
+    position: relative;
+}
+
+.legend-color::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 8px;
+    background: inherit;
+    opacity: 0.3;
+    filter: blur(4px);
+    z-index: -1;
 }
 
 .legend-color.income {
-    background: #10b981;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
 
 .legend-color.expense {
-    background: #ef4444;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
 }
 
 .legend-color.event {
-    background: #8b5cf6;
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
 }
 
 /* Responsividade do calendário */
@@ -1445,8 +1773,9 @@ footer, .login-footer {
     }
     
     .fc-event {
-        font-size: 0.7rem;
-        padding: 1px 4px;
+        font-size: 0.2rem;
+        padding: 0.1px 0.25px;
+        line-height: 0.7;
     }
 }
 
@@ -1485,5 +1814,11 @@ footer, .login-footer {
     
     #calendar-container {
         padding: 12px;
+    }
+    
+    .fc-event {
+        font-size: 0.18rem;
+        padding: 0.05px 0.1px;
+        line-height: 0.6;
     }
 }

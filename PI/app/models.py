@@ -2,13 +2,14 @@ from datetime import datetime
 from . import db
 import pytz
 
-# Definição de modelos de banco de dados:
-# Classe User: Representa um usuário do sistema.
-# Classe Account: Representa uma conta bancária.
-# Classe TransactionType: Representa um tipo de transação financeira (entrada ou saída).
-# Classe Revenue: Representa uma entrada de dinheiro (receita).
-# Classe Expense: Representa uma saída de dinheiro (despesa).
-# Classe SavingGoal: Representa uma meta de poupança financeira.
+# FinGest - Personal Financial Management System
+# Database model definitions:
+# User class: Represents a FinGest system user
+# Account class: Represents a user's bank account/wallet
+# TransactionType class: Represents a financial transaction type (income or expense)
+# Revenue class: Represents money inflow (income)
+# Expense class: Represents money outflow (expense)
+# SavingGoal class: Represents a financial savings goal
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)

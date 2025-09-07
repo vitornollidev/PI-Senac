@@ -93,17 +93,14 @@ def dashboard():
     total_revenue = db.session.query(db.func.sum(Revenue.amount)).join(Account).filter(Account.user_id == user_id).scalar() or 0
     total_expense = db.session.query(db.func.sum(Expense.amount)).join(Account).filter(Account.user_id == user_id).scalar() or 0
 
-    # Preparar dados de despesas por tipo
     expense_data = {expense_type.type_name: 0 for expense_type in expense_types}
     for expense in expenses:
         if expense.transaction_type.type_name in expense_data:
             expense_data[expense.transaction_type.type_name] += expense.amount
 
-    # Preparar os labels e valores para o gráfico
     labels = list(expense_data.keys())
     data = list(expense_data.values())
 
-    # Adicionar valor disponível para gastar, se houver
     if total_revenue > total_expense:
         labels.append('Disponível para Gasto')
         data.append(total_revenue - total_expense)
@@ -361,7 +358,6 @@ def change_password():
 @main.route('/logout')
 def logout():
     session.pop('user_id', None)
-    flash('Você saiu da conta.', 'success')
     return redirect(url_for('main.login'))
 
 @main.route('/transaction_management', methods=['GET', 'POST'])
@@ -447,15 +443,17 @@ def api_events():
     events = []
 
     for expense in expenses:
+        formatted_amount = f"R$ {expense.amount:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.')
         events.append({
-            'title': f"Despesa: {expense.amount}",
+            'title': f"Despesa: {formatted_amount}",
             'start': expense.expense_date.strftime('%Y-%m-%d'),
             'color': 'red'
         })
 
     for revenue in revenues:
+        formatted_amount = f"R$ {revenue.amount:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.')
         events.append({
-            'title': f"Receita: {revenue.amount}",
+            'title': f"Receita: {formatted_amount}",
             'start': revenue.revenue_date.strftime('%Y-%m-%d'),
             'color': 'green'
         })

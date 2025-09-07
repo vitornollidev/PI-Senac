@@ -215,3 +215,49 @@ function updateMonthTitle(calendar) {
         monthTitle.textContent = `${month} ${year}`;
     }
 }
+
+// Função moderna para auto-hide das mensagens flash após 5 segundos
+function autoHideFlashMessages() {
+    const flashMessages = document.querySelectorAll('.flash');
+    
+    flashMessages.forEach(function(message) {
+        // Adicionar transição suave moderna
+        message.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        // Adicionar efeito de entrada suave
+        message.style.opacity = '0';
+        message.style.transform = 'translateY(-20px) scale(0.95)';
+        
+        // Animar entrada
+        setTimeout(function() {
+            message.style.opacity = '1';
+            message.style.transform = 'translateY(0) scale(1)';
+        }, 50);
+        
+        // Após 5 segundos, fazer a mensagem desaparecer
+        setTimeout(function() {
+            message.style.opacity = '0';
+            message.style.transform = 'translateY(-20px) scale(0.95)';
+            message.style.filter = 'blur(2px)';
+            
+            // Remover o elemento após a animação
+            setTimeout(function() {
+                if (message.parentNode) {
+                    message.parentNode.removeChild(message);
+                }
+            }, 600); // 600ms para a animação
+        }, 5000); // 5 segundos
+    });
+}
+
+// Executar quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', function() {
+    autoHideFlashMessages();
+});
+
+// Também executar quando a página for carregada (para casos onde DOMContentLoaded já foi disparado)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', autoHideFlashMessages);
+} else {
+    autoHideFlashMessages();
+}
