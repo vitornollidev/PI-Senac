@@ -20,7 +20,12 @@
         <!-- Coluna do formulário -->
         <div class="login-form-column">
             <div class="login-container">
-                <h2>Transforme sua<br><span class="highlight-text">Vida Financeira</span></h2>
+                <!-- Logo e mensagem de boas-vindas -->
+                <div class="login-header">
+                    <img src="{{ url_for('static', filename='img/Logo.png') }}" alt="FinGest Logo" class="login-logo">
+                    <h1 class="welcome-title">Bem-vindo ao <span class="highlight-text">FinGest</span></h1>
+                    <p class="welcome-subtitle">Transforme sua vida financeira</p>
+                </div>
                 <form action="{{ url_for('main.login') }}" method="post">
                     {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
@@ -45,7 +50,7 @@
     </div>
     
     <footer class="login-footer">
-        <p>&copy; 2025 Meu Financeiro - Projeto Integrador</p>
+        <p>&copy; 2025 FinGest - Sistema de Gestão Financeira Pessoal</p>
     </footer>
     
 </body>

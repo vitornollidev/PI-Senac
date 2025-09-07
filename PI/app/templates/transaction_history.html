@@ -5,22 +5,28 @@
 <div class="container">
     <!-- Histórico de Despesas -->
     <div class="section">
-        <h2>Histórico de Despesas</h2>
+        <div class="table-header">
+            <h2>Histórico de Despesas</h2>
+            <p class="table-subtitle">Visualize todas as suas despesas registradas</p>
+        </div>
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Descrição</th>
-                <th>Valor</th>
-                <th>Tipo</th>
-                <th>Conta</th>
-                <th>Data</th>
-                <th>Ações</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Tipo</th>
+                    <th>Conta</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
             {% for expense_data in expenses %}
             <tr>
                 <td>{{ expense_data.expense.id }}</td>
                 <td>{{ expense_data.expense.description }}</td>
-                <td>{{ expense_data.expense.amount }}</td>
+                <td><span class="currency-value negative">R$ {{ "%.2f"|format(expense_data.expense.amount) }}</span></td>
                 <td>{{ expense_data.transaction_type.type_name }}</td>
                 <td>{{ expense_data.account.account_name }}</td>
                 <td>{{ expense_data.expense.expense_date.strftime('%d/%m/%Y') }}</td>
@@ -29,27 +35,34 @@
                 </td>
             </tr>
             {% endfor %}
+            </tbody>
         </table>
     </div>
 
     <!-- Histórico de Receitas -->
     <div class="section">
-        <h2>Histórico de Receitas</h2>
+        <div class="table-header">
+            <h2>Histórico de Receitas</h2>
+            <p class="table-subtitle">Acompanhe todas as suas receitas registradas</p>
+        </div>
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Descrição</th>
-                <th>Valor</th>
-                <th>Tipo</th>
-                <th>Conta</th>
-                <th>Data</th>
-                <th>Ações</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Tipo</th>
+                    <th>Conta</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
             {% for revenue_data in revenues %}
             <tr>
                 <td>{{ revenue_data.revenue.id }}</td>
                 <td>{{ revenue_data.revenue.description }}</td>
-                <td>{{ revenue_data.revenue.amount }}</td>
+                <td><span class="currency-value positive">R$ {{ "%.2f"|format(revenue_data.revenue.amount) }}</span></td>
                 <td>{{ revenue_data.transaction_type.type_name }}</td>
                 <td>{{ revenue_data.account.account_name }}</td>
                 <td>{{ revenue_data.revenue.revenue_date.strftime('%d/%m/%Y') }}</td>
@@ -58,6 +71,7 @@
                 </td>
             </tr>
             {% endfor %}
+            </tbody>
         </table>
     </div>
 </div>
