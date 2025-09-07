@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Meu Financeiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='img/wallet.png') }}" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.css">
@@ -21,7 +24,6 @@
             <a href="{{ url_for('main.transaction_management') }}" class="nav-link">Tipos de Transações</a>
             <a href="{{ url_for('main.config') }}" class="nav-link">Configurações</a>
             <a href="{{ url_for('main.logout') }}" class="nav-link">Sair</a>
-            <button id="dark-mode-toggle" class="nav-link dark-mode-toggle">Modo Escuro</button>
         </div>
     </div>
     
@@ -38,8 +40,8 @@
     </div>
 
     {% block content %}{% endblock %}
-    <footer>
-        <p>Projeto PI - Senac</p>
+    <footer class="login-footer">
+        <p>&copy; 2025 Meu Financeiro - Projeto Integrador</p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.js"></script>
