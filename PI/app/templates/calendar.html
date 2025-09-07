@@ -1,7 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div id="calendar-container">
-        <div id="calendar"></div>
+    <div class="calendar-page">
+        <div class="calendar-header">
+            <h1><span class="calendar-icon">📅</span> Calendário Financeiro</h1>
+            <p>Visualize suas transações e eventos financeiros</p>
+        </div>
+        
+        <div class="calendar-controls">
+            <button id="prev-month" class="calendar-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <h2 id="current-month"></h2>
+            <button id="next-month" class="calendar-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <div id="calendar-container">
+            <div id="calendar"></div>
+        </div>
+        
+        <div class="calendar-legend">
+            <div class="legend-item">
+                <span class="legend-color income"></span>
+                <span>Receitas</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color expense"></span>
+                <span>Despesas</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color event"></span>
+                <span>Eventos</span>
+            </div>
+        </div>
     </div>
 {% endblock %}

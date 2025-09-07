@@ -101,11 +101,117 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (calendarEl) {
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            // Configuração em português brasileiro
+            locale: 'pt-br',
+            
+            // Visualização inicial
             initialView: 'dayGridMonth',
-            events: '/api/events',
+            
+            // Altura automática
             height: 'auto',
             contentHeight: 'auto',
+            
+            // Cabeçalho personalizado
+            headerToolbar: false,
+            
+            // Configurações de visualização
+            dayMaxEvents: 3,
+            moreLinkClick: 'popover',
+            
+            // Estilo dos dias
+            dayCellClassNames: 'calendar-day-cell',
+            dayHeaderClassNames: 'calendar-day-header',
+            
+            // Configurações de eventos
+            events: '/api/events',
+            eventDisplay: 'block',
+            eventClassNames: 'calendar-event',
+            
+            // Configurações de interação
+            selectable: true,
+            selectMirror: true,
+            editable: true,
+            droppable: true,
+            
+            // Configurações de data
+            firstDay: 1, // Segunda-feira como primeiro dia
+            
+            // Configurações de cores e estilo
+            eventColor: '#60a5fa',
+            eventTextColor: '#ffffff',
+            
+            // Configurações de popover
+            eventDidMount: function(info) {
+                // Adicionar tooltip personalizado
+                info.el.setAttribute('title', info.event.title);
+                
+                // Adicionar classes baseadas no tipo de evento
+                if (info.event.title.includes('Receita') || info.event.title.includes('Salário')) {
+                    info.el.classList.add('event-income');
+                } else if (info.event.title.includes('Despesa') || info.event.title.includes('Conta')) {
+                    info.el.classList.add('event-expense');
+                } else {
+                    info.el.classList.add('event-general');
+                }
+            },
+            
+            // Configurações de seleção
+            select: function(info) {
+                // Aqui você pode adicionar funcionalidade para criar novos eventos
+                console.log('Data selecionada:', info.startStr);
+            },
+            
+            // Configurações de clique em evento
+            eventClick: function(info) {
+                // Aqui você pode adicionar funcionalidade para editar eventos
+                console.log('Evento clicado:', info.event.title);
+            }
         });
+        
+        // Renderizar o calendário
         calendar.render();
+        
+        // Configurar controles personalizados
+        setupCalendarControls(calendar);
+        
+        // Atualizar título do mês
+        updateMonthTitle(calendar);
     }
 });
+
+// Função para configurar controles personalizados
+function setupCalendarControls(calendar) {
+    const prevBtn = document.getElementById('prev-month');
+    const nextBtn = document.getElementById('next-month');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            calendar.prev();
+            updateMonthTitle(calendar);
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            calendar.next();
+            updateMonthTitle(calendar);
+        });
+    }
+}
+
+// Função para atualizar o título do mês
+function updateMonthTitle(calendar) {
+    const monthTitle = document.getElementById('current-month');
+    if (monthTitle) {
+        const currentDate = calendar.getDate();
+        const monthNames = [
+            'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+        ];
+        
+        const month = monthNames[currentDate.getMonth()];
+        const year = currentDate.getFullYear();
+        
+        monthTitle.textContent = `${month} ${year}`;
+    }
+}
