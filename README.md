@@ -2,11 +2,7 @@
 
 ## 🌐 Acesso à Aplicação
 
-**Site em Produção:** http://34.227.242.86:5000
-
-**Credenciais de Teste:**
-- **Usuário:** teste_senac
-- **Senha:** 123456
+**Site para Direcionamento:** https://thayannecarrilho.github.io/PI-Senac/
 
 ---
 
@@ -27,7 +23,6 @@ O **FinGest** é um sistema web de gestão financeira pessoal desenvolvido em Fl
 
 ## 👥 Equipe de Desenvolvimento
 
-- **Cleber Alves Guedes**
 - **Marcelo Augusto Malange Silva**
 - **Paulo Henrique Cardoso dos Santos**
 - **Thayanne Cristine da Silva Carrilho**
