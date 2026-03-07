@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinGest - Controle Financeiro Pessoal</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-mark">FG</span>
+                <span class="logo-text">FinGest</span>
+            </div>
+            <nav class="nav">
+                <a href="#features">Funcionalidades</a>
+                <a href="#how-it-works">Como funciona</a>
+                <a href="#about">Sobre o projeto</a>
+            </nav>
+            <a class="header-cta"
+               href="http://13.221.115.229:5000/login">
+                Acessar aplicativo
+            </a>
+        </header>
+
+        <main class="main">
+            <section class="hero">
+                <div class="hero-text">
+                    <h1>Organize sua vida financeira com o FinGest</h1>
+                    <p>
+                        Cadastre receitas, despesas, metas de economia e visualize tudo
+                        em um painel moderno e intuitivo.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn primary"
+                           href="http://13.221.115.229:5000/login">
+                            Entrar no sistema
+                        </a>
+                        <a class="btn ghost"
+                           href="http://13.221.115.229:5000/register">
+                            Criar conta
+                        </a>
+                    </div>
+                    <p class="hint">
+                        Após clicar, você será redirecionado para o backend hospedado no
+                        Render.
+                    </p>
+                </div>
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <span>Visão geral mensal</span>
+                        <span class="pill">Demo</span>
+                    </div>
+                    <div class="hero-card-body">
+                        <div class="hero-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Receitas</span>
+                                <span class="metric-value positivo">R$ 7.500,00</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Despesas</span>
+                                <span class="metric-value negativo">R$ 4.320,00</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Saldo disponível</span>
+                                <span class="metric-value destaque">R$ 3.180,00</span>
+                            </div>
+                        </div>
+                        <div class="hero-chart-placeholder">
+                            <span class="chart-title">Distribuição de gastos</span>
+                            <div class="chart-bars">
+                                <div class="bar" style="--value: 80%"></div>
+                                <div class="bar" style="--value: 55%"></div>
+                                <div class="bar" style="--value: 40%"></div>
+                                <div class="bar" style="--value: 25%"></div>
+                            </div>
+                            <div class="chart-legend">
+                                <span>Alimentação</span>
+                                <span>Moradia</span>
+                                <span>Transporte</span>
+                                <span>Diversão</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="section">
+                <h2>Funcionalidades principais</h2>
+                <div class="cards-grid">
+                    <article class="card">
+                        <h3>Cadastro de receitas e despesas</h3>
+                        <p>
+                            Registre seus ganhos e gastos por categoria, conta e data
+                            para ter uma visão clara do seu fluxo de caixa.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Painel com gráficos</h3>
+                        <p>
+                            Visualize seus gastos por categoria com gráficos que ajudam a
+                            entender para onde está indo o seu dinheiro.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Histórico de transações</h3>
+                        <p>
+                            Consulte o histórico completo de receitas e despesas para
+                            acompanhar sua evolução ao longo do tempo.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Metas de economia</h3>
+                        <p>
+                            Defina objetivos financeiros e acompanhe quanto ainda falta
+                            para atingi-los.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="how-it-works" class="section section-alt">
+                <h2>Como funciona a arquitetura</h2>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p>
+                            Esta página é um front-end estático hospedado no
+                            GitHub Pages, dentro da pasta <code>docs/</code> do
+                            repositório.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p>
+                            Ao clicar em <strong>Entrar</strong> ou
+                            <strong>Criar conta</strong>, você é redirecionado para o
+                            backend Flask hospedado no Render.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p>
+                            Todo o processamento (login, cadastro, dashboard, gráficos,
+                            etc.) continua sendo feito normalmente pelo backend.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="section">
+                <h2>Sobre o projeto</h2>
+                <p>
+                    Este projeto faz parte do PI e foi desenvolvido utilizando
+                    <strong>Flask</strong> no backend, com templates, gráficos e
+                    gerenciamento de sessões para controle financeiro pessoal.
+                </p>
+                <p>
+                    A hospedagem está separada em duas camadas: o
+                    <strong>frontend estático</strong> no GitHub Pages e o
+                    <strong>backend</strong> no Render.
+                </p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>FinGest &copy; 2025 - Sistema de Gestão Financeira Pessoal</p>
+        </footer>
+    </div>
+</body>
+</html>
+
